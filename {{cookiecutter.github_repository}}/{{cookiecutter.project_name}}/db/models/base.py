@@ -64,7 +64,10 @@ class User(AbstractBaseUser):
         return self.username
 
     class Meta:
-        unique_together = [["mobile_number", "tenant"], ["email", "tenant"]]
+        unique_together = (
+            ("username", "email"),
+            ("username", "mobile_number"),
+        )
 
     def save(self, *args, **kwargs):
         self.email = self.email.lower().strip()

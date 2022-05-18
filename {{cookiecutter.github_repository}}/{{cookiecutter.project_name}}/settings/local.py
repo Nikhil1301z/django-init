@@ -7,7 +7,7 @@ from sentry_sdk.integrations.django import DjangoIntegration
 from sentry_sdk.integrations.redis import RedisIntegration
 
 
-from .common import * # noqa
+from .common import *  # noqa
 
 DEBUG = True
 
@@ -21,6 +21,12 @@ DATABASES = {
         'USER': "",
         'PASSWORD': "",
         'HOST': "",
+    },
+    'planet_scale': {
+        'ENGINE': 'django_psdb_engine',
+        'NAME': "{{ cookiecutter.project_name }}",
+        'HOST': "",
+        'PORT': "",
     }
 }
 
